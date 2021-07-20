@@ -1,0 +1,11 @@
+{
+  "name": "@vertualabs/ethereum-smart-contracts",
+  "version": "0.1.0",
+  "description": "Vertua Labs Ethereum Smart Contracts",
+  "main": "scripts/index.ts",
+  "scripts": {
+    "test": "test/index.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
