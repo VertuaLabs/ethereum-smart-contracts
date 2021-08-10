@@ -1,0 +1,8 @@
+{
+  "auctionAddress": "0x9F97F11EE80C1471B17BB1AB3A7D0107ac555A31",
+  "cardAddress": "0x2CDCA2E25eE3e131e342De17976721927fB9FEa8",
+  "ropsten": {
+    "auctionAddress": "0xd66a1cf379ACD992ea7CBB5B2f3b0e47E326dC6F",
+    "nftAddress": "0x74514863557A59C52F027bBf8eaE0d1E1AA5F99E"
+  }
+}
