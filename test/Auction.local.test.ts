@@ -1,12 +1,9 @@
-import "@nomiclabs/hardhat-waffle";
-
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { expect } from "chai";
-import { Contract } from "ethers";
-import * as admin from "firebase-admin";
-import { ethers } from "hardhat";
-
-import serviceAccount from "../keys/opera-omnia-test-firebase-adminsdk-n7cj2-4b9ccfd0e4.json";
+import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import '@nomiclabs/hardhat-waffle';
+import { expect } from 'chai';
+import { Contract } from 'ethers';
+import * as admin from 'firebase-admin';
+import { ethers } from 'hardhat';
 
 /* eslint-disable jest/valid-expect */
 admin.initializeApp({
@@ -30,16 +27,6 @@ describe('Auction Local', function () {
   const reserve = ethers.utils.parseEther(
     Math.ceil(Math.random() * 10).toString(),
   );
-
-  const userId = '0x0';
-  const user = {
-    id: '0x0',
-    username: 'mock-test',
-    displayName: 'mock test',
-    headline: 'mock test',
-    about: 'mock test',
-    photoURL: '',
-  };
 
   const AuctionState = {
     CREATED: 0,
