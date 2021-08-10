@@ -1,4 +1,4 @@
-// contracts/GenericPermissiveNFT.sol
+// contracts/VertuaLabsPermissiveNFT.sol
 // SPDX-License-Identifier: UNLICENSED
 
 pragma solidity ^0.8.0;
@@ -6,7 +6,9 @@ pragma solidity ^0.8.0;
 import '@openzeppelin/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 
-contract GenericPermissiveNFT is Ownable, ERC721PresetMinterPauserAutoId {
+/// @author VertuaLabs
+/// @title VertuaLabs Permissive NFT Contract
+contract VertuaLabsPermissiveNFT is Ownable, ERC721PresetMinterPauserAutoId {
   bool isPermissive;
 
   constructor(
@@ -17,16 +19,53 @@ contract GenericPermissiveNFT is Ownable, ERC721PresetMinterPauserAutoId {
     isPermissive = true;
   }
 
-  function safeMint(address to, uint256 id) public onlyOwner {
+  function safeMint(uint256 id) public {
+    if (isPermissive == false) {
+      require(
+        hasRole('MINTER_ROLE', msg.sender),
+        'Caller does not have MINTER_ROLE'
+      );
+    }
+    _safeMint(msg.sender, id);
+  }
+
+  function safeMint(address to, uint256 id) public {
+    if (isPermissive == false) {
+      require(
+        hasRole('MINTER_ROLE', msg.sender),
+        'Caller does not have MINTER_ROLE'
+      );
+    }
     _safeMint(to, id);
+  }
+
+  function safeMintSeries(uint256[] calldata ids) public {
+    if (isPermissive == false) {
+      require(
+        hasRole('MINTER_ROLE', msg.sender),
+        'Caller does not have MINTER_ROLE'
+      );
+    }
+    for (uint256 i = 0; i < ids.length; i++) {
+      uint256 id = ids[i];
+      _safeMint(msg.sender, id);
+    }
+  }
+
+  function safeMint(address to, uint256[] calldata ids) public {
+    if (isPermissive == false) {
+      require(
+        hasRole('MINTER_ROLE', msg.sender),
+        'Caller does not have MINTER_ROLE'
+      );
+    }
+    for (uint256 i = 0; i < ids.length; i++) {
+      uint256 id = ids[i];
+      _safeMint(to, id);
+    }
   }
 
   function setPermissive(bool _state) public onlyOwner {
     isPermissive = _state;
-  }
-
-  function safePermissiveMint(uint256 id) public {
-    require(isPermissive == true, 'Contract not in Permissive State');
-    _safeMint(msg.sender, id);
   }
 }
