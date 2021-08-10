@@ -2,6 +2,8 @@
 
 This repo contains open-sourced Ethereum Smart Contracts
 
+These smart contracts are used in [VertuaVerse](https://vertuaverse.com).
+
 ## NFT (Permissive)
 
 A smart contract based upon OpenZeppelin's [ERC721PresetMinterPauserAutoId](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId)
