@@ -1,10 +1,20 @@
 # VertuaLabs Ethereum Smart Contracts
 
-This repo contains open-sourced Ethereum Smart Contracts
+This repo contains open-sourced Ethereum Smart Contracts.
 
-These smart contracts are used in [VertuaVerse](https://vertuaverse.com).
+These smart contracts are used in [OperaOmnia](https://operaomnia.app).
 
-## NFT (Permissive)
+## Auction Contract
+
+The Auction Contract implements a highest bidder (aka an English Auction).
+
+## ERC-20 Contracts
+
+### Fixed Supply
+
+### Minter
+
+## ERC-721 NFT Permissive Contract
 
 A smart contract based upon OpenZeppelin's [ERC721PresetMinterPauserAutoId](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721PresetMinterPauserAutoId)
 
